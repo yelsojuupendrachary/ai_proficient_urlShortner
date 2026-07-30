@@ -13,6 +13,8 @@ Prerequisites: Java 21 with `JAVA_HOME` set. From `ai_prof_url_shortener`:
 
 The service runs at `http://localhost:8080`. H2's development-only console is `/h2-console` (JDBC URL `jdbc:h2:mem:urlshortener`).
 
+Interactive API documentation is available at `http://localhost:8080/swagger-ui.html`; the machine-readable OpenAPI document is `http://localhost:8080/api-docs`.
+
 ## API
 
 | Operation | Endpoint | Result |

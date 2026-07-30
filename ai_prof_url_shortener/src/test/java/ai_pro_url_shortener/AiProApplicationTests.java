@@ -42,4 +42,12 @@ class AiProApplicationTests {
     void returnsNotFoundForUnknownCode() throws Exception {
         mockMvc.perform(get("/api/urls/ZZZZZZZZ/analytics")).andExpect(status().isNotFound());
     }
+
+    @Test
+    void publishesOpenApiSpecificationAndSwaggerUi() throws Exception {
+        mockMvc.perform(get("/api-docs")).andExpect(status().isOk())
+                .andExpect(jsonPath("$.info.title", is("URL Shortener API")))
+                .andExpect(jsonPath("$.paths['/api/urls']").exists());
+        mockMvc.perform(get("/swagger-ui.html")).andExpect(status().is3xxRedirection());
+    }
 }
